@@ -11,7 +11,7 @@ import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 
-class PlayState4 extends MainState
+class PlayState5 extends MainState
 {
 	var onLevel:Int = 0;
 
@@ -43,7 +43,7 @@ class PlayState4 extends MainState
 		bg.scrollFactor.set();
 		add(bg);
 
-		map = new FlxOgmo3Loader(AssetPaths.level__ogmo, AssetPaths.level4__json);
+		map = new FlxOgmo3Loader(AssetPaths.level__ogmo, AssetPaths.level5__json);
 		wall = map.loadTilemap(AssetPaths.first_level__png, "tile_set");
 		wall.follow();
 		wall.setTileProperties(1, NONE);

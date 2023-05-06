@@ -12,7 +12,7 @@ class MainState extends FlxState
 	{
 		super.create();
 
-		version_text = new FlxText(0, 0, 0, "v1.1 Beta", 12);
+		version_text = new FlxText(0, 0, 0, "v1.2 Beta", 12);
 		version_text.scrollFactor.set();
 		add(version_text);
 	}

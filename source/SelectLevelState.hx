@@ -7,7 +7,7 @@ import flixel.util.FlxColor;
 
 class SelectLevelState extends MainState
 {
-	var list:Array<String> = ["Level 1", "Level 2", "Level 3", "Level 4", "Exit"];
+	var list:Array<String> = ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Exit"];
 	var group_button:FlxTypedGroup<FlxText>;
 	var curSelected:Int = 0;
 
@@ -62,6 +62,12 @@ class SelectLevelState extends MainState
 
 				case "Level 4":
 					FlxG.switchState(new PlayState4());
+
+				case "Level 5":
+					FlxG.switchState(new PlayState5());
+
+				case "Level 6":
+					FlxG.switchState(new PlayState6());
 
 				case "Exit":
 					FlxG.switchState(new MenuState());
