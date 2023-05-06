@@ -58,7 +58,7 @@ class MenuState extends MainState
 			switch (list[curSelected])
 			{
 				case "play":
-					FlxG.switchState(new PlayState());
+					FlxG.switchState(new SelectLevelState());
 
 				case "setting":
 					FlxG.switchState(new OptionsMenu());

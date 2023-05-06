@@ -28,7 +28,7 @@ class WinnerState extends MainState
 
 		if (FlxG.keys.anyJustPressed([ESCAPE, ENTER]))
 		{
-			FlxG.switchState(new MenuState());
+			FlxG.switchState(new SelectLevelState());
 		}
 
 		if (FlxG.keys.justPressed.R)
