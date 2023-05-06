@@ -79,7 +79,14 @@ class OptionsMenu extends MainState
 			switch (list[curSelected])
 			{
 				case "Run Speed":
-					FlxG.save.data.runSpeed -= 1;
+					if (FlxG.save.data.runSpeed == 0)
+					{
+						FlxG.save.data.runSpeed -= 0;
+					}
+					else
+					{
+						FlxG.save.data.runSpeed -= 1;
+					}
 			}
 		}
 
@@ -88,7 +95,14 @@ class OptionsMenu extends MainState
 			switch (list[curSelected])
 			{
 				case "Run Speed":
-					FlxG.save.data.runSpeed += 1;
+					if (FlxG.save.data.runSpeed == 10)
+					{
+						FlxG.save.data.runSpeed += 0;
+					}
+					else
+					{
+						FlxG.save.data.runSpeed += 1;
+					}
 			}
 		}
 	}
