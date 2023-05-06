@@ -15,6 +15,7 @@ class MenuState extends MainState
 	{
 		super.create();
 
+		Data.init();
 		FlxG.save.bind("data", "assets/data/");
 
 		group_button = new FlxTypedGroup<FlxSprite>();
