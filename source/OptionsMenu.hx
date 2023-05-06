@@ -79,7 +79,7 @@ class OptionsMenu extends MainState
 			switch (list[curSelected])
 			{
 				case "Run Speed":
-					if (FlxG.save.data.runSpeed == 1)
+					if (FlxG.save.data.runSpeed == 0)
 					{
 						FlxG.save.data.runSpeed -= 0;
 					}

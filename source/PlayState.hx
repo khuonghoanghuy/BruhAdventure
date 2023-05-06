@@ -27,6 +27,8 @@ class PlayState extends MainState
 	var player:Player;
 	var flag:Flags;
 
+	var timeCounter:FlxText;
+
 	var info_text:FlxText;
 	var ranking:String = "No Hit";
 
@@ -64,9 +66,13 @@ class PlayState extends MainState
 
 		map.loadEntities(placeEntities, "entity");
 
-		info_text = new FlxText(0, 20, 0, "", 12);
+		info_text = new FlxText(0, 0, 0, "", 12);
 		info_text.scrollFactor.set();
 		add(info_text);
+
+		timeCounter = new FlxText(0, 40, 0, "", 12);
+		timeCounter.scrollFactor.set();
+		add(timeCounter);
 	}
 
 	function placeEntities(entity:EntityData)
@@ -89,8 +95,12 @@ class PlayState extends MainState
 		}
 	}
 
+	var time:Int = 0;
+
 	override public function update(elapsed:Float)
 	{
+		time += 1;
+
 		super.update(elapsed);
 
 		FlxG.camera.follow(player, PLATFORMER);
@@ -110,6 +120,15 @@ class PlayState extends MainState
 		}
 
 		info_text.text = "Score: " + Stuff.SCORE + "\nWas Hit: " + Stuff.WASHIT + " (" + ranking + ")";
+
+		if (FlxG.save.data.timeCounter)
+		{
+			timeCounter.text = "Time: " + time;
+		}
+		else
+		{
+			timeCounter.text = "";
+		}
 
 		switch (Stuff.WASHIT)
 		{
@@ -192,6 +211,8 @@ class PlayState2 extends MainState
 	var player:Player;
 	var flag:Flags;
 
+	var timeCounter:FlxText;
+
 	var info_text:FlxText;
 	var ranking:String = "No Hit";
 
@@ -229,9 +250,13 @@ class PlayState2 extends MainState
 
 		map.loadEntities(placeEntities, "entity");
 
-		info_text = new FlxText(0, 20, 0, "", 12);
+		info_text = new FlxText(0, 0, 0, "", 12);
 		info_text.scrollFactor.set();
 		add(info_text);
+
+		timeCounter = new FlxText(0, 20, 0, "", 12);
+		timeCounter.scrollFactor.set();
+		add(timeCounter);
 	}
 
 	function placeEntities(entity:EntityData)
@@ -275,6 +300,15 @@ class PlayState2 extends MainState
 		}
 
 		info_text.text = "Score: " + Stuff.SCORE + "\nWas Hit: " + Stuff.WASHIT + " (" + ranking + ")";
+
+		if (FlxG.save.data.timeCounter)
+		{
+			timeCounter.text = "Time: " + FlxG.elapsed;
+		}
+		else
+		{
+			timeCounter.text = "";
+		}
 
 		switch (Stuff.WASHIT)
 		{
@@ -357,6 +391,8 @@ class PlayState3 extends MainState
 	var player:Player;
 	var flag:Flags;
 
+	var timeCounter:FlxText;
+
 	var info_text:FlxText;
 	var ranking:String = "No Hit";
 
@@ -394,9 +430,13 @@ class PlayState3 extends MainState
 
 		map.loadEntities(placeEntities, "entity");
 
-		info_text = new FlxText(0, 20, 0, "", 12);
+		info_text = new FlxText(0, 0, 0, "", 12);
 		info_text.scrollFactor.set();
 		add(info_text);
+
+		timeCounter = new FlxText(0, 20, 0, "", 12);
+		timeCounter.scrollFactor.set();
+		add(timeCounter);
 	}
 
 	function placeEntities(entity:EntityData)
@@ -440,6 +480,15 @@ class PlayState3 extends MainState
 		}
 
 		info_text.text = "Score: " + Stuff.SCORE + "\nWas Hit: " + Stuff.WASHIT + " (" + ranking + ")";
+
+		if (FlxG.save.data.timeCounter)
+		{
+			timeCounter.text = "Time: " + FlxG.elapsed;
+		}
+		else
+		{
+			timeCounter.text = "";
+		}
 
 		switch (Stuff.WASHIT)
 		{
@@ -522,6 +571,8 @@ class PlayState4 extends MainState
 	var player:Player;
 	var flag:Flags;
 
+	var timeCounter:FlxText;
+
 	var info_text:FlxText;
 	var ranking:String = "No Hit";
 
@@ -559,9 +610,13 @@ class PlayState4 extends MainState
 
 		map.loadEntities(placeEntities, "entity");
 
-		info_text = new FlxText(0, 20, 0, "", 12);
+		info_text = new FlxText(0, 0, 0, "", 12);
 		info_text.scrollFactor.set();
 		add(info_text);
+
+		timeCounter = new FlxText(0, 20, 0, "", 12);
+		timeCounter.scrollFactor.set();
+		add(timeCounter);
 	}
 
 	function placeEntities(entity:EntityData)
@@ -605,6 +660,15 @@ class PlayState4 extends MainState
 		}
 
 		info_text.text = "Score: " + Stuff.SCORE + "\nWas Hit: " + Stuff.WASHIT + " (" + ranking + ")";
+
+		if (FlxG.save.data.timeCounter)
+		{
+			timeCounter.text = "Time: " + FlxG.elapsed;
+		}
+		else
+		{
+			timeCounter.text = "";
+		}
 
 		switch (Stuff.WASHIT)
 		{
