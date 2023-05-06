@@ -19,7 +19,7 @@ class OptionsMenu extends MainState
 
 		for (i in 0...list.length)
 		{
-			var optionText:FlxText = new FlxText(20, 300 + (i * 50), 0, list[i], 32);
+			var optionText:FlxText = new FlxText(20, 20 + (i * 50), 0, list[i], 32);
 			optionText.ID = i;
 			group_button.add(optionText);
 		}
