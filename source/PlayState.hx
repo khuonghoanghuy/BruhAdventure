@@ -39,6 +39,8 @@ class PlayState extends MainState
 	{
 		super.create();
 
+		FlxG.save.bind("data", "assets/data/");
+
 		bg = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
 		bg.screenCenter();
 		bg.scrollFactor.set();
@@ -153,9 +155,9 @@ class PlayState extends MainState
 			player.velocity.y = -300;
 
 		if (left)
-			player.velocity.x = -100;
+			player.velocity.x = -100 * FlxG.save.data.runSpeed;
 		else if (right)
-			player.velocity.x = 100;
+			player.velocity.x = 100 * FlxG.save.data.runSpeed;
 		else
 			player.velocity.x = 0;
 	}
@@ -201,6 +203,8 @@ class PlayState2 extends MainState
 	override public function create()
 	{
 		super.create();
+
+		FlxG.save.bind("data", "assets/data/");
 
 		bg = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
 		bg.screenCenter();
@@ -316,9 +320,9 @@ class PlayState2 extends MainState
 			player.velocity.y = -300;
 
 		if (left)
-			player.velocity.x = -100;
+			player.velocity.x = -100 * FlxG.save.data.runSpeed;
 		else if (right)
-			player.velocity.x = 100;
+			player.velocity.x = 100 * FlxG.save.data.runSpeed;
 		else
 			player.velocity.x = 0;
 	}
@@ -364,6 +368,8 @@ class PlayState3 extends MainState
 	override public function create()
 	{
 		super.create();
+
+		FlxG.save.bind("data", "assets/data/");
 
 		bg = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
 		bg.screenCenter();
@@ -479,9 +485,9 @@ class PlayState3 extends MainState
 			player.velocity.y = -300;
 
 		if (left)
-			player.velocity.x = -100;
+			player.velocity.x = -100 * FlxG.save.data.runSpeed;
 		else if (right)
-			player.velocity.x = 100;
+			player.velocity.x = 100 * FlxG.save.data.runSpeed;
 		else
 			player.velocity.x = 0;
 	}
@@ -527,6 +533,8 @@ class PlayState4 extends MainState
 	override public function create()
 	{
 		super.create();
+
+		FlxG.save.bind("data", "assets/data/");
 
 		bg = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
 		bg.screenCenter();
@@ -642,9 +650,9 @@ class PlayState4 extends MainState
 			player.velocity.y = -300;
 
 		if (left)
-			player.velocity.x = -100;
+			player.velocity.x = -100 * FlxG.save.data.runSpeed;
 		else if (right)
-			player.velocity.x = 100;
+			player.velocity.x = 100 * FlxG.save.data.runSpeed;
 		else
 			player.velocity.x = 0;
 	}

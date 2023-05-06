@@ -6,7 +6,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 class MenuState extends MainState
 {
-	var list:Array<String> = ["play", "exit"];
+	var list:Array<String> = ["play", "setting", "exit"];
 	var button:FlxSprite;
 	var group_button:FlxTypedGroup<FlxSprite>;
 	var curSelected:Int = 0;
@@ -25,7 +25,7 @@ class MenuState extends MainState
 			var item:FlxSprite = new FlxSprite(0, 0);
 			item.loadGraphic(AssetPaths.main_menu__png, true, 24, 16);
 			item.animation.add("play", [0]);
-			// item.animation.add("setting", [1]);
+			item.animation.add("setting", [1]);
 			item.animation.add("exit", [2]);
 			item.animation.play("play");
 			item.scale.set(3, 3);
@@ -59,6 +59,9 @@ class MenuState extends MainState
 				case "play":
 					FlxG.switchState(new PlayState());
 
+				case "setting":
+					FlxG.switchState(new OptionsMenu());
+
 				case "exit":
 					FlxG.save.flush();
 					Sys.exit(0);
@@ -85,6 +88,10 @@ class MenuState extends MainState
 
 				case 1:
 					spr.ID = 1;
+					spr.animation.play("setting");
+
+				case 2:
+					spr.ID = 2;
 					spr.animation.play("exit");
 			}
 

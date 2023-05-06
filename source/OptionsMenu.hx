@@ -10,6 +10,7 @@ class OptionsMenu extends MainState
 	var list:Array<String> = ["Run Speed", "Exit"];
 	var group_button:FlxTypedGroup<FlxText>;
 	var curSelected:Int = 0;
+	var text:FlxText;
 
 	override public function create()
 	{
@@ -23,6 +24,10 @@ class OptionsMenu extends MainState
 			group_button.add(optionText);
 		}
 
+		text = new FlxText(0, 20, 0, "", 12);
+		text.scrollFactor.set();
+		add(text);
+
 		super.create();
 
 		change();
@@ -31,6 +36,15 @@ class OptionsMenu extends MainState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		switch (list[curSelected])
+		{
+			case "Run Speed":
+				text.text = "" + FlxG.save.data.runSpeed;
+
+			default:
+				text.text = "";
+		}
 
 		if (FlxG.keys.anyJustPressed([UP, W]))
 		{
@@ -49,6 +63,7 @@ class OptionsMenu extends MainState
 				case "Exit":
 					FlxG.save.flush();
 					FlxG.switchState(new MenuState());
+					FlxG.save.bind("data", "assets/data/");
 			}
 		}
 
@@ -56,6 +71,7 @@ class OptionsMenu extends MainState
 		{
 			FlxG.save.flush();
 			FlxG.switchState(new MenuState());
+			FlxG.save.bind("data", "assets/data/");
 		}
 
 		if (FlxG.keys.anyJustPressed([LEFT, A]))
@@ -85,6 +101,15 @@ class OptionsMenu extends MainState
 			curSelected = group_button.length - 1;
 		if (curSelected >= group_button.length)
 			curSelected = 0;
+
+		switch (list[curSelected])
+		{
+			case "Run Speed":
+				text.text = "" + FlxG.save.data.runSpeed;
+
+			default:
+				text.text = "";
+		}
 
 		group_button.forEach(function(txt:FlxText)
 		{
