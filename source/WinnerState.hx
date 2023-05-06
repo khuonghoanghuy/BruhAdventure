@@ -12,6 +12,9 @@ class WinnerState extends MainState
 	{
 		super(FlxColor.BLACK);
 
+		PlayState.Stuff.SCORE = 0;
+		PlayState.Stuff.WASHIT = 0;
+
 		text = new FlxText(0, 0, 0, "- !Win! -
             \nYou are win, this game still in beta\nWait the update for more level\nPress Enter or Escape to return\nPress R to restart", 16);
 		text.screenCenter();
