@@ -17,6 +17,7 @@ class PauseSubState extends FlxSubState
             \nPress Enter to resume\nPress R to restart\nPress Esc to return", 16);
 		text.screenCenter();
 		text.alignment = CENTER;
+		text.scrollFactor.set();
 		add(text);
 	}
 
