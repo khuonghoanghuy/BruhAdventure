@@ -11,7 +11,7 @@ import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 
-class PlayState7 extends MainState
+class PlayState8 extends MainState
 {
 	var onLevel:Int = 0;
 
@@ -43,7 +43,7 @@ class PlayState7 extends MainState
 		bg.scrollFactor.set();
 		add(bg);
 
-		map = new FlxOgmo3Loader(AssetPaths.level__ogmo, AssetPaths.level7__json);
+		map = new FlxOgmo3Loader(AssetPaths.level__ogmo, AssetPaths.level8__json);
 		wall = map.loadTilemap(AssetPaths.first_level__png, "tile_set");
 		wall.follow();
 		wall.setTileProperties(1, NONE);
@@ -56,7 +56,7 @@ class PlayState7 extends MainState
 		player = new Player();
 		add(player);
 
-		flag = new Flags(1584, 336);
+		flag = new Flags(1584, 400);
 		add(flag);
 
 		map.loadEntities(placeEntities, "entity");
@@ -86,7 +86,7 @@ class PlayState7 extends MainState
 				coin.add(new Coin(x, y));
 
 			case "flag":
-				flag.setPosition(1584, 336);
+				flag.setPosition(1584, 400);
 		}
 	}
 
@@ -186,9 +186,7 @@ class PlayState7 extends MainState
 		if (player.alive && player.exists && flag.alive && flag.exists)
 		{
 			flag.kill();
-			PlayState.Stuff.SCORE = 0;
-			PlayState.Stuff.WASHIT = 0;
-			FlxG.switchState(new SelectLevelState());
+			FlxG.switchState(new WinnerState());
 		}
 	}
 }

@@ -15,6 +15,7 @@ class SelectLevelState extends MainState
 		"Level 5",
 		"Level 6",
 		"Level 7",
+		"Level 8",
 		"Exit"
 	];
 	var group_button:FlxTypedGroup<FlxText>;
@@ -82,6 +83,9 @@ class SelectLevelState extends MainState
 
 				case "Level 7":
 					FlxG.switchState(new PlayState7());
+
+				case "Level 8":
+					FlxG.switchState(new PlayState8());
 
 				case "Exit":
 					FlxG.switchState(new MenuState());

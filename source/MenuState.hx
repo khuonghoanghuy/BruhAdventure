@@ -7,7 +7,7 @@ import flixel.util.FlxColor;
 
 class MenuState extends MainState
 {
-	var list:Array<String> = ["play", "setting", "exit"];
+	var list:Array<String> = ["play", "setting", #if desktop "exit" #end];
 	var button:FlxSprite;
 	var group_button:FlxTypedGroup<FlxSprite>;
 	var curSelected:Int = 0;
@@ -15,9 +15,6 @@ class MenuState extends MainState
 	override public function create()
 	{
 		super.create();
-
-		Data.init();
-		FlxG.save.bind("data", "assets/data/");
 
 		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
 		bg.screenCenter();
@@ -78,9 +75,11 @@ class MenuState extends MainState
 				case "setting":
 					FlxG.switchState(new OptionsMenu());
 
+				#if desktop
 				case "exit":
 					FlxG.save.flush();
 					Sys.exit(0);
+				#end
 			}
 		}
 	}
