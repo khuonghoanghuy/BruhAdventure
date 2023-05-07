@@ -3,10 +3,12 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.text.FlxText;
+import openfl.display.FPS;
 
 class MainState extends FlxState
 {
 	var version_text:FlxText;
+	var fps:FPS;
 
 	override public function create()
 	{
