@@ -24,6 +24,8 @@ class MenuState extends MainState
 		bg.scrollFactor.set();
 		add(bg);
 
+		showText(true);
+
 		group_button = new FlxTypedGroup<FlxSprite>();
 		add(group_button);
 

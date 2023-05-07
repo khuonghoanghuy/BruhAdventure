@@ -18,6 +18,8 @@ class SelectLevelState extends MainState
 		group_button = new FlxTypedGroup<FlxText>();
 		add(group_button);
 
+		showText(true);
+
 		for (i in 0...list.length)
 		{
 			var optionText:FlxText = new FlxText(20, 20 + (i * 50), 0, list[i], 32);

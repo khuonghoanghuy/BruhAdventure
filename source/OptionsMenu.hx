@@ -20,6 +20,8 @@ class OptionsMenu extends MainState
 		bg.scrollFactor.set();
 		add(bg);
 
+		showText(true);
+
 		group_button = new FlxTypedGroup<FlxText>();
 		add(group_button);
 
