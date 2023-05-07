@@ -1,5 +1,7 @@
 # Bruh Adventure
 
+![](assets/images/title.png)
+
 [DOWNLOAD FROM HERE](https://huy1234th.itch.io/bruhadventure)
 
 BruhAdventure was a new Adventure game , made on Haxe
