@@ -12,7 +12,7 @@ class Main extends Sprite
 	{
 		super();
 		addChild(new FlxGame(0, 0, MenuState));
-		fpsCounter = new FPS(620, 0, 0xFFFFFF);
+		fpsCounter = new FPS(615, 0, 0xFFFFFF);
 		addChild(fpsCounter);
 	}
 }
