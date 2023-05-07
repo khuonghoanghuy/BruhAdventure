@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 
 class OptionsMenu extends MainState
 {
-	var list:Array<String> = ["Run Speed", "Exit"];
+	var list:Array<String> = ["Run Speed", "FPS Counter", "Exit"];
 	var group_button:FlxTypedGroup<FlxText>;
 	var curSelected:Int = 0;
 	var text:FlxText;
@@ -72,6 +72,11 @@ class OptionsMenu extends MainState
 					FlxG.save.flush();
 					FlxG.switchState(new MenuState());
 					FlxG.save.bind("data", "assets/data/");
+
+				case "FPS Counter":
+					FlxG.save.data.fpsCounter = !FlxG.save.data.fpsCounter;
+					text.text = "" + FlxG.save.data.fpsCounter;
+					FlxG.save.data.fpsCounter = FlxG.save.data.fpsCounter;
 			}
 		}
 
@@ -128,6 +133,9 @@ class OptionsMenu extends MainState
 		{
 			case "Run Speed":
 				text.text = "" + FlxG.save.data.runSpeed;
+
+			case "FPS Counter":
+				text.text = "" + FlxG.save.data.fpsCounter;
 
 			default:
 				text.text = "";

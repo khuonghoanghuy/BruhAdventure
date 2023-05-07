@@ -10,5 +10,10 @@ class Data
 		{
 			FlxG.save.data.runSpeed = 1; // 1 was default
 		}
+
+		if (FlxG.save.data.fpsCounter == null)
+		{
+			FlxG.save.data.fpsCounter = true; // true was default
+		}
 	}
 }

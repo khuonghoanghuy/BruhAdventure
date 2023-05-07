@@ -6,10 +6,13 @@ import openfl.display.Sprite;
 
 class Main extends Sprite
 {
+	public static var fpsCounter:FPS;
+
 	public function new()
 	{
 		super();
 		addChild(new FlxGame(0, 0, MenuState));
-		addChild(new FPS(620, 0, 0xFFFFFF));
+		fpsCounter = new FPS(620, 0, 0xFFFFFF);
+		addChild(fpsCounter);
 	}
 }

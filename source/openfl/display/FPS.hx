@@ -1,7 +1,7 @@
 package openfl.display;
 
-import haxe.Timer;
-import openfl.events.Event;
+import flixel.FlxG;
+import flixel.system.FlxAssets;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 #if gl_stats
@@ -41,7 +41,7 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("_sans", 12, color);
+		defaultTextFormat = new TextFormat(FlxAssets.FONT_DEFAULT, 12, color);
 		text = "FPS: ";
 
 		cacheCount = 0;
