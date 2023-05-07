@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
@@ -14,6 +15,11 @@ class OptionsMenu extends MainState
 
 	override public function create()
 	{
+		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
+		bg.screenCenter();
+		bg.scrollFactor.set();
+		add(bg);
+
 		group_button = new FlxTypedGroup<FlxText>();
 		add(group_button);
 

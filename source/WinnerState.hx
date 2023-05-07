@@ -16,7 +16,7 @@ class WinnerState extends MainState
 		PlayState.Stuff.WASHIT = 0;
 
 		text = new FlxText(0, 0, 0, "- !Win! -
-            \nYou are win, this game still in beta\nWait the update for more level\nPress Enter or Escape to return\nPress R to restart", 16);
+            \nYou are win, this game still in beta\nWait the update for more level\nPress Enter or Escape to return", 16);
 		text.screenCenter();
 		text.alignment = CENTER;
 		add(text);
@@ -29,11 +29,6 @@ class WinnerState extends MainState
 		if (FlxG.keys.anyJustPressed([ESCAPE, ENTER]))
 		{
 			FlxG.switchState(new SelectLevelState());
-		}
-
-		if (FlxG.keys.justPressed.R)
-		{
-			FlxG.switchState(new PlayState());
 		}
 	}
 }

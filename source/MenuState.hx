@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.util.FlxColor;
 
 class MenuState extends MainState
 {
@@ -17,6 +18,11 @@ class MenuState extends MainState
 
 		Data.init();
 		FlxG.save.bind("data", "assets/data/");
+
+		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(640, 480, FlxColor.BLUE);
+		bg.screenCenter();
+		bg.scrollFactor.set();
+		add(bg);
 
 		group_button = new FlxTypedGroup<FlxSprite>();
 		add(group_button);
@@ -35,6 +41,13 @@ class MenuState extends MainState
 			item.ID = i;
 			group_button.add(item);
 		}
+
+		var item:FlxSprite = new FlxSprite(0, 0);
+		item.loadGraphic(AssetPaths.title__png, false);
+		item.color = FlxColor.WHITE;
+		item.screenCenter(Y);
+		item.x = 300;
+		add(item);
 
 		change();
 	}
