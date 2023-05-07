@@ -15,5 +15,10 @@ class Data
 		{
 			FlxG.save.data.fpsCounter = true; // true was default
 		}
+
+		if (FlxG.save.data.fpsCap == null)
+		{
+			FlxG.save.data.fpsCap = 60; // 60 was default
+		}
 	}
 }

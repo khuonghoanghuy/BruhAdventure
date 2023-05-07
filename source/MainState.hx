@@ -38,5 +38,16 @@ class MainState extends FlxState
 		{
 			FlxG.stage.addChild(Main.fpsCounter);
 		}
+
+		if (FlxG.save.data.fpsCap == null)
+		{
+			FlxG.updateFramerate = 60;
+			FlxG.drawFramerate = 60;
+		}
+		else
+		{
+			FlxG.updateFramerate = FlxG.save.data.fpsCap;
+			FlxG.drawFramerate = FlxG.save.data.fpsCap;
+		}
 	}
 }

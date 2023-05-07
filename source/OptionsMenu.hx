@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 
 class OptionsMenu extends MainState
 {
-	var list:Array<String> = ["Run Speed", "FPS Counter", "Exit"];
+	var list:Array<String> = ["Run Speed", "FPS Counter", "FPS Cap", "Exit"];
 	var group_button:FlxTypedGroup<FlxText>;
 	var curSelected:Int = 0;
 	var text:FlxText;
@@ -49,6 +49,12 @@ class OptionsMenu extends MainState
 		{
 			case "Run Speed":
 				text.text = "" + FlxG.save.data.runSpeed;
+
+			case "FPS Counter":
+				text.text = "" + FlxG.save.data.fpsCounter;
+
+			case "FPS Cap":
+				text.text = "" + FlxG.save.data.fpsCap;
 
 			default:
 				text.text = "";
@@ -100,6 +106,16 @@ class OptionsMenu extends MainState
 					{
 						FlxG.save.data.runSpeed -= 1;
 					}
+
+				case "FPS Cap":
+					if (FlxG.save.data.fpsCap == 60)
+					{
+						FlxG.save.data.fpsCap -= 0;
+					}
+					else
+					{
+						FlxG.save.data.fpsCap -= 10;
+					}
 			}
 		}
 
@@ -115,6 +131,16 @@ class OptionsMenu extends MainState
 					else
 					{
 						FlxG.save.data.runSpeed += 1;
+					}
+
+				case "FPS Cap":
+					if (FlxG.save.data.fpsCap == 120)
+					{
+						FlxG.save.data.fpsCap += 0;
+					}
+					else
+					{
+						FlxG.save.data.fpsCap += 10;
 					}
 			}
 		}
@@ -136,6 +162,9 @@ class OptionsMenu extends MainState
 
 			case "FPS Counter":
 				text.text = "" + FlxG.save.data.fpsCounter;
+
+			case "FPS Cap":
+				text.text = "" + FlxG.save.data.fpsCap;
 
 			default:
 				text.text = "";
