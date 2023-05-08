@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.input.gamepad.FlxGamepad;
 
 class Data
 {
@@ -21,4 +22,8 @@ class Data
 			FlxG.save.data.fpsCap = 60; // 60 was default
 		}
 	}
+	/*public static function checkController()
+		{
+			if ()
+	}*/
 }

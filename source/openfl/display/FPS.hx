@@ -10,6 +10,7 @@ import openfl.display._internal.stats.DrawCallContext;
 #end
 #if flash
 import openfl.Lib;
+import openfl.events.Event;
 #end
 
 /**

@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 
 class OptionsMenu extends MainState
 {
-	var list:Array<String> = ["Run Speed", "FPS Counter", "FPS Cap", "Exit"];
+	var list:Array<String> = ["Run Speed", #if !flash "FPS Counter", "FPS Cap", #end "Exit"];
 	var group_button:FlxTypedGroup<FlxText>;
 	var curSelected:Int = 0;
 	var text:FlxText;
