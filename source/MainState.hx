@@ -7,7 +7,7 @@ import flixel.text.FlxText;
 class MainState extends FlxState
 {
 	var version_text:FlxText;
-	var version:String = "v1.3.1";
+	var version:String = "v1.4";
 
 	override public function create()
 	{

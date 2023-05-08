@@ -19,7 +19,8 @@ class PlayState extends MainState
 	var map:FlxOgmo3Loader;
 	var coin:FlxTypedGroup<Coin>;
 	var player:Player;
-	var flag:Flags;
+	var flag:FlxTypedGroup<Flags>;
+	var trampoline:FlxTypedGroup<Trampoline>;
 
 	var timeCounter:FlxText;
 
@@ -55,8 +56,11 @@ class PlayState extends MainState
 		player = new Player();
 		add(player);
 
-		flag = new Flags(1584, 384);
+		flag = new FlxTypedGroup<Flags>();
 		add(flag);
+
+		trampoline = new FlxTypedGroup<Trampoline>();
+		add(trampoline);
 
 		map.loadEntities(placeEntities, "entity");
 
@@ -85,7 +89,10 @@ class PlayState extends MainState
 				coin.add(new Coin(x, y));
 
 			case "flag":
-				flag.setPosition(1584, 384);
+				flag.add(new Flags(x, y));
+
+			case "trampoline":
+				trampoline.add(new Trampoline(x, y));
 		}
 	}
 
@@ -99,6 +106,7 @@ class PlayState extends MainState
 
 		FlxG.camera.follow(player, PLATFORMER);
 		FlxG.collide(player, wall);
+		FlxG.overlap(player, trampoline, trampolineTouch);
 		FlxG.overlap(player, coin, touchCoin);
 		FlxG.overlap(player, flag, win_yeah);
 
@@ -195,6 +203,14 @@ class PlayState extends MainState
 			Stuff.SCORE = 0;
 			Stuff.WASHIT = 0;
 			FlxG.switchState(new SelectLevelState());
+		}
+	}
+
+	function trampolineTouch(player:Player, trampoline:Trampoline)
+	{
+		if (player.alive && player.exists && flag.alive && flag.exists)
+		{
+			player.velocity.y = -1000;
 		}
 	}
 }
