@@ -33,11 +33,15 @@ class PauseSubState extends FlxSubState
 		if (FlxG.keys.justPressed.R)
 		{
 			FlxG.resetState();
+			Stuff.SCORE = 0;
+			Stuff.WASHIT = 0;
 		}
 
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.switchState(new MenuState());
+			Stuff.SCORE = 0;
+			Stuff.WASHIT = 0;
 		}
 	}
 }

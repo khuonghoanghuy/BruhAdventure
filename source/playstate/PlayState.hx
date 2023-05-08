@@ -1,6 +1,5 @@
-package;
+package playstate;
 
-import PlayState.Stuff;
 import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -11,7 +10,7 @@ import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 
-class PlayState6 extends MainState
+class PlayState extends MainState
 {
 	var onLevel:Int = 0;
 
@@ -43,7 +42,7 @@ class PlayState6 extends MainState
 		bg.scrollFactor.set();
 		add(bg);
 
-		map = new FlxOgmo3Loader(AssetPaths.level__ogmo, AssetPaths.level6__json);
+		map = new FlxOgmo3Loader(AssetPaths.level__ogmo, AssetPaths.level1__json);
 		wall = map.loadTilemap(AssetPaths.first_level__png, "tile_set");
 		wall.follow();
 		wall.setTileProperties(1, NONE);
@@ -56,7 +55,7 @@ class PlayState6 extends MainState
 		player = new Player();
 		add(player);
 
-		flag = new Flags(1584, 320);
+		flag = new Flags(1584, 384);
 		add(flag);
 
 		map.loadEntities(placeEntities, "entity");
@@ -65,7 +64,7 @@ class PlayState6 extends MainState
 		info_text.scrollFactor.set();
 		add(info_text);
 
-		timeCounter = new FlxText(0, 20, 0, "", 12);
+		timeCounter = new FlxText(0, 40, 0, "", 12);
 		timeCounter.scrollFactor.set();
 		add(timeCounter);
 	}
@@ -86,12 +85,16 @@ class PlayState6 extends MainState
 				coin.add(new Coin(x, y));
 
 			case "flag":
-				flag.setPosition(1584, 320);
+				flag.setPosition(1584, 384);
 		}
 	}
 
+	var time:Int = 0;
+
 	override public function update(elapsed:Float)
 	{
+		time += 1;
+
 		super.update(elapsed);
 
 		FlxG.camera.follow(player, PLATFORMER);
@@ -114,7 +117,7 @@ class PlayState6 extends MainState
 
 		if (FlxG.save.data.timeCounter)
 		{
-			timeCounter.text = "Time: " + FlxG.elapsed;
+			timeCounter.text = "Time: " + time;
 		}
 		else
 		{
@@ -186,8 +189,11 @@ class PlayState6 extends MainState
 		if (player.alive && player.exists && flag.alive && flag.exists)
 		{
 			flag.kill();
-			PlayState.Stuff.SCORE = 0;
-			PlayState.Stuff.WASHIT = 0;
+			#if desktop
+			sys.io.File.saveContent("assets/data/data_score/lv1.txt", Std.string(Stuff.SCORE));
+			#end
+			Stuff.SCORE = 0;
+			Stuff.WASHIT = 0;
 			FlxG.switchState(new SelectLevelState());
 		}
 	}

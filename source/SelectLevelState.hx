@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import playstate.*;
 
 class SelectLevelState extends MainState
 {
@@ -20,6 +21,7 @@ class SelectLevelState extends MainState
 	];
 	var group_button:FlxTypedGroup<FlxText>;
 	var curSelected:Int = 0;
+	var scoreText:FlxText;
 
 	override public function create()
 	{
@@ -36,6 +38,10 @@ class SelectLevelState extends MainState
 			optionText.ID = i;
 			group_button.add(optionText);
 		}
+
+		scoreText = new FlxText(0, 20, 0, "", 12);
+		scoreText.scrollFactor.set();
+		add(scoreText);
 
 		change();
 	}
@@ -101,6 +107,36 @@ class SelectLevelState extends MainState
 			curSelected = group_button.length - 1;
 		if (curSelected >= group_button.length)
 			curSelected = 0;
+
+		switch (list[curSelected])
+		{
+			case "Level 1":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv1.txt');
+
+			case "Level 2":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv2.txt');
+
+			case "Level 3":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv3.txt');
+
+			case "Level 4":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv4.txt');
+
+			case "Level 5":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv5.txt');
+
+			case "Level 6":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv6.txt');
+
+			case "Level 7":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv7.txt');
+
+			case "Level 8":
+				scoreText.text = "Score: " + sys.io.File.getContent('assets/data/data_score/lv8.txt');
+
+			default:
+				scoreText.text = "";
+		}
 
 		group_button.forEach(function(txt:FlxText)
 		{
